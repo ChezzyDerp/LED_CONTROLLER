@@ -1,38 +1,97 @@
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+    width: calc(450px + 1vw);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    font-family: 'NTR', sans-serif;
+    background: linear-gradient(112.13deg, #323232 100%, #CCCCCC 100%, rgba(157, 131, 131, 0) 8%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btnBody {
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: calc(150px + 1vh);
+    width: calc(150px + 1vw);
+    border: 0.5px solid #FFFFFF;
+    border-radius: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.btnGradient {
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    height: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nameBtn {
+    background-color: #353535;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: white;
+    height: 50%;
+    border-radius: 0 0 30px 30px;
+}
+
+.wrapButtons {
+    margin-top: 25px;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Gradients */
+
+.mint {
+    background: linear-gradient(270deg, #368A85 0%, #00FF66 100%);
+}
+
+.purple {
+    background: linear-gradient(270deg, #D31ABA 0%, #8A33C2 100%);
+}
+
+.yellowPink {
+    background: linear-gradient(270deg, #ED2D7A 0%, #FAEC31 100%);
+}
+
+.sky {
+    background: linear-gradient(270deg, #7E9FE9 0%, #CEBDD3 100%);
+}
+
+.pinkBlue {
+    background: linear-gradient(270deg, #50D2FC 0%, #E76CA7 100%);
+}
+
+.yellow {
+    background: linear-gradient(270deg, #FF7A00 0%, #BEE328 100%);
+}
+
+.red {
+    background: linear-gradient(270deg, #26172D 0%, #E75D5A 100%);
+}
+
+.sea {
+    background: linear-gradient(270deg, #298389 0%, #2F3649 100%);
+}
+
+.blueYellow {
+    background: linear-gradient(270deg, #F6D262 0%, #18867E 100%);
+}
+
+.blackSea {
+    background: linear-gradient(270deg, #469DCA 0%, #0C1E2C 100%);
 }

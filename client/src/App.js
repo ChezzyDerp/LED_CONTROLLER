@@ -1,20 +1,31 @@
 import './App.css';
-import { choseLed } from './initserial';
+import logo from './img/logo.png'
+
+//Set mode
+
+//Led modes
 import { modes } from './modes';
+import BtnLed from './components/BtnLed';
+
+let gradients = ["purple","mint","yellowPink","sky","pinkBlue","yellow","red","sea","blueYellow", "blackSea"]
 
 
 function App() {
 
   return (
     <div className="App">
-      <h3 className="mt-1">Led Controller by Ivan Tezin</h3>
-      <div className="row m-5 gap-2 ">
-        <div className="col ">
-          <div className="row gap-1">
-                {modes.map(m => <button className="btn btn-success" onClick={() => choseLed(m.id.toString())}>{m.name}</button>)}
-            </div>
-        </div>
+      
+      <img className="logo" src={logo} alt="" />
+
+      <div className="wrapButtons">
+        {modes.map(m => 
+            <BtnLed name={m.name} id={m.id.toString()} color={gradients[Math.floor(Math.random()*gradients.length)]}/>
+        )}
+        
       </div>
+        <div className="autors pt-5">
+          by Ivan Tezin and Danil' Ahmerov
+        </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export function choseLed(mode) {
+export function chooseLed(mode) {
     axios.post('/set_mode', { mode: mode }).then((res) => {
         console.log(res.body)
     })
