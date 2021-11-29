@@ -1,27 +1,58 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+var readline = require('readline');
+let COM = 'COM4'
 
-const COM = 'COM4'
+var rl = readline.createInterface(process.stdin, process.stdout);
+
 
 const app = express()
 const SerialPort = require('serialport')
-const serialPort = new SerialPort(COM, {
-    baudRate: 9600
-})
+
+function selectPort() {
+    rl.setPrompt('\nSelect COM number (or press Ctrl + C to select default) : ');
+    rl.prompt();
+    rl.on('line', function(line) {
+        if (rl == '') {
+            rl.prompt();
+        } else {
+            COM = "COM" + line
+            startServer()
+        }
+    }).on('close', function() {
+        console.log('Selected default port (COM4)')
+        process.exit(0);
+    });
+}
+
+selectPort()
 
 
-const port = 5000
+function startServer() {
 
-app.use(bodyParser.json())
 
-app.listen(port, () => {
-    console.log(`Server listening on ${port} port...`)
-    console.log(`Now select is ${COM} port, edit if it not work.`)
-})
+    const serialPort = new SerialPort(COM, {
+        baudRate: 9600
+    })
 
-app.post("/set_mode", (req, res) => {
-    let mode = req.body.mode
-    serialPort.write(mode)
-    res.sendStatus(200)
-    console.log(`Mode led was is edit. Mode - ${mode}\n`)
-})
+    const port = 5000
+
+    app.listen(port, () => { console.log(`\nServer is listening on ${port}.`) })
+    app.use(bodyParser.json())
+    app.use((req, res) => {
+        res.header("Access-Control-Allow-Origin");
+        next()
+    })
+
+    app.post("/set_mode", (req, res) => {
+        let mode = req.body.mode
+        try {
+            serialPort.write(mode)
+        } catch (error) {
+            console.log('\nSomething wrong, try edit COM port.')
+        }
+
+        res.sendStatus(200)
+        console.log(`Mode led was is edit. Mode - ${mode}\n`)
+    })
+}
