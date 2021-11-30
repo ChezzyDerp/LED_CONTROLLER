@@ -16,15 +16,20 @@ function App() {
     <div className="App">
       
       <img className="logo" src={logo} alt="" />
+      
+      
 
       <div className="wrapButtons">
         {modes.map(m => 
-            <BtnLed name={m.name} id={m.id.toString()} color={gradients[Math.floor(Math.random()*gradients.length)]}/>
+            <BtnLed name={m.name}
+             id={m.id.toString()}
+             color={gradients[Math.floor(Math.random()*gradients.length)]} 
+             description={m.description || "Нет описания"}/>
         )}
         
       </div>
         <div className="autors pt-5">
-          by Ivan Tezin and Danil' Ahmerov
+          by Ivan Tezin & Danil' Ahmerov & Danila Tezin
         </div>
     </div>
   );

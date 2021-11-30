@@ -1,7 +1,7 @@
 export let modes = [
-    { id: 1, name: "ALL ON", color: "purple" },
+    { id: 1, name: "ALL ON", color: "purple" , description: "Включает все светодиоды"},
     { id: 2, name: "SRF", color: "mint" },
-    { id: 3, name: "RAINBOW LOOP", color: "yellowPink" },
+    { id: 3, name: "RAINBOW LOOP", color: "yellowPink", description: "Радуга"},
     { id: 4, name: "RANDOM BURST", color: "sky" },
     { id: 5, name: "CYLON v1", color: "pinkBlue" },
     { id: 6, name: "CYLON v2", color: "yellow" },
