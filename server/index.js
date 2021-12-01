@@ -10,15 +10,22 @@ const app = express()
 const SerialPort = require('serialport')
 
 function selectPort() {
+
     rl.setPrompt('\nSelect COM number (or press Ctrl + C to select default) : ');
+
     rl.prompt();
+
     rl.on('line', function(line) {
+
         if (rl == '') {
+
             rl.prompt();
+
         } else {
             COM = "COM" + line
             startServer()
         }
+
     }).on('close', function() {
         console.log('Selected default port (COM4)')
         process.exit(0);
@@ -39,7 +46,7 @@ function startServer() {
 
     app.listen(port, () => { console.log(`\nServer is listening on ${port}.`) })
     app.use(bodyParser.json())
-    app.use((req, res) => {
+    app.use((req, res, next) => {
         res.header("Access-Control-Allow-Origin");
         next()
     })

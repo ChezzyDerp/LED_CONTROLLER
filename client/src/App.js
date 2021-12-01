@@ -1,8 +1,6 @@
 import './App.css';
 import logo from './img/logo.png'
 
-//Set mode
-
 //Led modes
 import { modes } from './modes';
 import BtnLed from './components/BtnLed';
@@ -15,7 +13,7 @@ function App() {
   return (
     <div className="App">
       
-      <img className="logo" src={logo} alt="" />
+      <img className="logo" src={logo} alt="Led controller" />
       
       
 

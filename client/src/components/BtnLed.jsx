@@ -1,6 +1,4 @@
 import { chooseLed } from '../chooseLed';
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
 import { wobble } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 
@@ -11,12 +9,7 @@ const styles = {
   }
 }
 
-
-
-
 const BtnLed = ({name, id, color, description }) =>{
-
-    // AOS.init()
    
     return(
         <StyleRoot><div style={styles.lightSpeedIn}  onClick={() => chooseLed(id)}data-aos-duration="1000"  data-aos="zoom-out-down" className="btnBody">
