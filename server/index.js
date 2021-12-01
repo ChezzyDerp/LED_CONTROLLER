@@ -27,8 +27,8 @@ function selectPort() {
         }
 
     }).on('close', function() {
-        console.log('Selected default port (COM4)')
-        process.exit(0);
+        console.log('\nSelected default port (COM4)')
+	startServer()
     });
 }
 
