@@ -1,3 +1,24 @@
+@keyframes rotateLogo {
+    from {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(1deg);
+    }
+    40% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(1deg);
+    }
+    90% {
+        transform: rotate(-1deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
 .App {
     display: flex;
     flex-direction: column;
@@ -6,7 +27,8 @@
 }
 
 .logo {
-    width: calc(450px + 1vw);
+    width: calc(400px + 1vw);
+    animation: rotateLogo 15s infinite;
 }
 
 body {
@@ -24,7 +46,8 @@ body {
     border: 0.5px solid #FFFFFF;
     border-radius: 30px;
 }
-.des{
+
+.des {
     color: white;
     position: absolute;
     pointer-events: none;
@@ -35,13 +58,13 @@ body {
     border-radius: 10px;
     background-color: rgb(39, 39, 39);
     transition: all 0.4s;
-    
-} 
+}
 
-.btnBody:hover .des{
+.btnBody:hover .des {
     opacity: 100;
 }
-.btnBody:hover .btnGradient{
+
+.btnBody:hover .btnGradient {
     filter: grayscale(80%);
 }
 
@@ -64,9 +87,8 @@ body {
     border-radius: 0 0 30px 30px;
     transition: all 0.5s;
 }
-.nameBtn:hover{
-    
-}
+
+.nameBtn:hover {}
 
 .wrapButtons {
     margin-top: 25px;
@@ -76,6 +98,22 @@ body {
     gap: 50px;
     align-items: center;
     justify-content: center;
+}
+
+.isConnected {
+    width: 100px;
+    color: white;
+    border-radius: 15px;
+}
+
+.disconnected {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(253, 48, 48);
+}
+
+.connected {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(58, 202, 58);
 }
 
 

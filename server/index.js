@@ -28,7 +28,7 @@ function selectPort() {
 
     }).on('close', function() {
         console.log('\nSelected default port (COM4)')
-	startServer()
+        startServer()
     });
 }
 
@@ -61,5 +61,8 @@ function startServer() {
 
         res.sendStatus(200)
         console.log(`Mode led was is edit. Mode - ${mode}\n`)
+    })
+    app.get('/connected', (req, res) => {
+        res.sendStatus(200)
     })
 }
